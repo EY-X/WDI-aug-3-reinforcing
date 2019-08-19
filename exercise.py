@@ -14,9 +14,18 @@ points = {
     'bronze': 1
     }
 
+final_score = {}
+
 for ballot in ballots:
     for x, y in ballot.items():
-        print(x, y)
+        stats = points[x]
+        if y in final_score.keys():
+            final_score[y] += stats
+        else:
+            final_score[y] = 0
+        
+first_place = max(final_score, key=final_score.get)
+print(first_place)
 
 
 # Each dictionary represents
